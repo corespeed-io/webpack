@@ -22,18 +22,81 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "lint": "eslint --format=sukka ."
+    "lint": "eslint --format=sukka .",
+    "build": "bunchee"
   },
-  "keywords": ["webpack", "configuration", "corespeed"],
+  "keywords": [
+    "webpack",
+    "configuration",
+    "corespeed"
+  ],
   "author": "Sukka <https://skk.moe>",
   "license": "UNLICENSED",
+  "dependencies": {
+    "@antfu/install-pkg": "^1.1.0",
+    "@clack/prompts": "^0.11.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
+    "@sentry/webpack-plugin": "^4.6.1",
+    "@types/webpack-bundle-analyzer": "^4.7.0",
+    "browserslist": "^4.28.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^13.0.1",
+    "css-loader": "^7.1.2",
+    "dotenv": "^17.2.3",
+    "enhanced-resolve": "^5.18.4",
+    "get-port-please": "^3.2.0",
+    "html-webpack-plugin": "^5.6.5",
+    "is-ci": "^4.1.0",
+    "lightningcss": "^1.30.2",
+    "lightningcss-loader": "^3.0.0",
+    "mini-css-extract-plugin": "^2.9.4",
+    "react-compiler-webpack": "^1.0.0",
+    "swc-loader": "^0.2.6",
+    "terser-webpack-plugin": "^5.3.16",
+    "tsconfig-paths-webpack-plugin": "^4.2.0",
+    "webpack-bundle-analyzer": "^5.1.0",
+    "webpackbar": "^7.0.0"
+  },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@swc/types": "^0.1.25",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^25.0.3",
     "@types/webpack": "^5.28.5",
     "bunchee": "^6.6.2",
+    "core-js": "^3.47.0",
     "eslint": "^9.39.2",
     "eslint-config-sukka": "^8.0.6",
     "eslint-formatter-sukka": "^8.0.6",
-    "typescript": "^5.9.3"
+    "postcss-loader": "^8.2.0",
+    "typescript": "^5.9.3",
+    "webpack": "^5.104.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "peerDependencies": {
+    "@svgr/webpack": "*",
+    "@tailwindcss/postcss": "*",
+    "core-js": "*",
+    "postcss-loader": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  },
+  "peerDependenciesMeta": {
+    "@svgr/webpack": {
+      "optional": true
+    },
+    "@tailwindcss/postcss": {
+      "optional": true
+    },
+    "core-js": {
+      "optional": true
+    },
+    "postcss-loader": {
+      "optional": true
+    },
+    "webpack-dev-server": {
+      "optional": true
+    }
   },
   "packageManager": "pnpm@10.26.1"
 }
