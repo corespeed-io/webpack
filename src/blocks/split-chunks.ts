@@ -8,7 +8,7 @@ export const splitChunks: ConfigurationBlock = ({
   topLevelFrameworkPackages
 }) => (config) => {
   config.optimization ??= {};
-  config.optimization.splitChunks = {};
+  config.optimization.splitChunks ??= {};
 
   if (config.optimization.runtimeChunk === 'single') {
     config.optimization.runtimeChunk = { name: 'webpack' };
@@ -19,7 +19,7 @@ export const splitChunks: ConfigurationBlock = ({
   config.optimization.splitChunks.maxInitialRequests = 25;
   config.optimization.splitChunks.minSize = 20000;
 
-  config.optimization.splitChunks.cacheGroups = {};
+  config.optimization.splitChunks.cacheGroups ??= {};
 
   const topLevelFrameworkPaths = getTopLevelFrameworkPaths(topLevelFrameworkPackages, cwd);
 
