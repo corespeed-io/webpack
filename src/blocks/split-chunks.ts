@@ -8,14 +8,13 @@ export const splitChunks: ConfigurationBlock = ({
   topLevelFrameworkPackages
 }) => (config) => {
   config.optimization ??= {};
-  config.optimization.splitChunks ??= {};
-
   if (config.optimization.runtimeChunk === 'single') {
     config.optimization.runtimeChunk = { name: 'webpack' };
   } else {
     config.optimization.runtimeChunk ??= { name: 'webpack' };
   }
 
+  config.optimization.splitChunks ||= {};
   config.optimization.splitChunks.maxInitialRequests = 25;
   config.optimization.splitChunks.minSize = 20000;
 

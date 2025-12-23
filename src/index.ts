@@ -63,6 +63,7 @@ export async function createWebpack(
     analyze: process.env.ANALYZE === 'true',
     plugins: [],
     dotenv: {},
+    lodashTreeShaking: false,
     ...options
   };
 

@@ -206,7 +206,14 @@ export interface CreateWebpackOptions {
    *
    * But if you wish, you can also directly specify the browserlists here.
    */
-  browserlists?: string | string[]
+  browserlists?: string | string[],
+
+  /**
+   * Enable alias lodash to lodash-es for better tree-shaking.
+   *
+   * @default false
+   */
+  lodashTreeShaking?: boolean
 }
 
 type OptionalOrMustSpecified = 'entry' | 'htmlTemplatePath' | 'browserlists';
