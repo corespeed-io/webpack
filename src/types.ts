@@ -83,7 +83,13 @@ export interface CreateWebpackOptions {
      *
      * @default '/_assets/static/'
      */
-    filenamePrefix?: string
+    filenamePrefix?: string,
+    /**
+     * `output.crossOriginLoading` setting.
+     *
+     * @default undefined
+     */
+    crossOriginLoading?: WebpackConfigurationOutput['crossOriginLoading']
   },
   sourcemap?: {
     /**

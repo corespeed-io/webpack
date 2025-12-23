@@ -13,12 +13,13 @@ export const output: ConfigurationBlock = (
 ) => (config: WebpackConfiguration) => {
   const {
     path: outputPath,
-    library
+    library,
+    crossOriginLoading
   } = output;
 
   config.output ??= {};
   config.output.asyncChunks = true;
-  config.output.crossOriginLoading = 'anonymous';
+  config.output.crossOriginLoading ??= crossOriginLoading;
   config.output.hashFunction = 'xxhash64';
   config.output.hashDigestLength = 16;
 
@@ -30,8 +31,8 @@ export const output: ConfigurationBlock = (
   config.output.cssChunkFilename ??= cssFilename;
   config.output.assetModuleFilename ??= assetFilename;
 
-  config.output.hotUpdateChunkFilename = '[id].[fullhash].hot-update.js';
-  config.output.hotUpdateMainFilename = '[fullhash].[runtime].hot-update.json';
+  config.output.hotUpdateChunkFilename = 'webpack/[id].[fullhash].hot-update.js';
+  config.output.hotUpdateMainFilename = 'webpack/[fullhash].[runtime].hot-update.json';
 
   return config;
 };
