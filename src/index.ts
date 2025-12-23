@@ -33,7 +33,8 @@ const $require = typeof globalThis.require === 'function'
  *
  * module.exports = createWebpck({
  *   // your options here
- *   outputPath: path.join(__dirname, 'dist')
+ * }, {
+ *  // your custom webpack config here
  * });
  * ```
  */
@@ -78,7 +79,7 @@ export async function createWebpck(
   } = ctx.output;
 
   const prodOnlyChunkName = outputChunkFileFormatContainChunkName ? '[name].' : '';
-  const outputFilenamePrefix = ensureLeadingTrailingSlash(_outputFilenamePrefix);
+  const outputFilenamePrefix = ensureFilenamePrefix(_outputFilenamePrefix);
 
   // MiniCssExtractPlugin do not read output.cssFilename
   // https://github.com/webpack/mini-css-extract-plugin/issues/1041
@@ -131,9 +132,9 @@ export async function createWebpck(
   );
 }
 
-function ensureLeadingTrailingSlash(path: string): string {
-  if (!path.startsWith('/')) {
-    path = '/' + path;
+function ensureFilenamePrefix(path: string): string {
+  if (path.startsWith('/')) {
+    path = path.slice(1);
   }
   if (!path.endsWith('/')) {
     path = path + '/';

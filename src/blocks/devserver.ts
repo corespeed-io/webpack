@@ -12,8 +12,8 @@ export const devserver: ConfigurationBlock = ({
 }) => async (config) => {
   const {
     fallbackPort: port = process.env.PORT ? Number(process.env.PORT || 3000) : 3000,
-    portRange,
-    ports
+    portRange = [3000, 3100],
+    ports = []
   } = devServerPort;
   const finalPort = await getPort({
     port,

@@ -61,7 +61,7 @@ export const loaders: ConfigurationBlock = (
 
   // CSS
   if (tailwind) {
-    ensurePackage(['postcss-loader', '@tailwindcss/postcss'], cwd, true);
+    ensurePackage(['postcss', 'postcss-loader', '@tailwindcss/postcss'], cwd, true);
   }
 
   if (!webpackExperimentalBuiltinCssSupport || tailwind) {
