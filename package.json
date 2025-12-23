@@ -37,6 +37,7 @@
     "@clack/prompts": "^0.11.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
     "@sentry/webpack-plugin": "^4.6.1",
+    "@swc/core": "^1.15.7",
     "@types/webpack-bundle-analyzer": "^4.7.0",
     "browserslist": "^4.28.1",
     "clean-webpack-plugin": "^4.0.0",

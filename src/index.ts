@@ -9,7 +9,6 @@ import { createRequire } from 'node:module';
 import { getSupportedBrowsers } from './utils/get-supported-browsers';
 import { getSwcOptions } from './utils/get-swc-loader-options';
 
-import { ensurePackage } from './utils/ensure-package';
 import type { ConfigurationBlockContext, CreateWebpackContext, CreateWebpackOptions } from './types';
 import { output } from './blocks/output';
 import { base } from './blocks/base';
@@ -98,14 +97,6 @@ export async function createWebpck(
     ctx.development
       ? '[name].[hash][ext][query]'
       : prodOnlyChunkName + '[hash][ext][query]'
-  );
-
-  // Global Required Packages
-  const ensureDevPackages = ['webpack-dev-server', 'core-js', '@swc/helpers'];
-  await ensurePackage(
-    ensureDevPackages,
-    ctx.cwd,
-    true
   );
 
   // Misc

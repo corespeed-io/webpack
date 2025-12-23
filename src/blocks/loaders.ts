@@ -32,6 +32,8 @@ export const loaders: ConfigurationBlock = (
     supportedBrowsers
   }
 ) => (config) => {
+  ensurePackage(['core-js', '@swc/helpers'], cwd, false);
+
   const blocks: ConfigurationFn[] = [];
 
   config.module ??= {};
