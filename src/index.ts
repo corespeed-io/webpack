@@ -17,6 +17,7 @@ import { devserver } from './blocks/devserver';
 import { plugins } from './blocks/plugins';
 import { resolve } from './blocks/resolve';
 import { browserslistToTargets } from 'lightningcss';
+import { external } from './blocks/external';
 
 const $require = typeof globalThis.require === 'function'
   ? globalThis.require
@@ -38,7 +39,7 @@ const $require = typeof globalThis.require === 'function'
  */
 export async function createWebpck(
   options: CreateWebpackOptions,
-  customWebpackOptions: Exclude<WebpackConfiguration, 'externals'> = {}
+  customWebpackOptions: WebpackConfiguration = {}
 ): Promise<WebpackConfiguration> {
   const ctx: CreateWebpackContext = {
     output: {},
@@ -118,6 +119,7 @@ export async function createWebpck(
 
   return [
     base(ctx, blockCtx),
+    external(ctx, blockCtx),
     output(ctx, blockCtx),
     sourcemap(ctx, blockCtx),
     devserver(ctx, blockCtx),
