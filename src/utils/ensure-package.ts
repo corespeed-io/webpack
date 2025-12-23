@@ -2,9 +2,10 @@ import { createRequire } from 'node:module';
 import isCI from 'is-ci';
 import { confirm } from '@clack/prompts';
 import { installPackage } from '@antfu/install-pkg';
+import { castArray } from 'foxts/cast-array';
 
 export async function ensurePackage(
-  packages: string[],
+  packages: string | string[],
   cwd: string,
   dev: boolean
 ) {
@@ -12,7 +13,7 @@ export async function ensurePackage(
 
   const missingPackages = new Set<string>();
 
-  for (const packageName of packages) {
+  for (const packageName of castArray(packages)) {
     try {
       globalRequire.resolve(packageName, { paths: [cwd] });
     } catch (e) {

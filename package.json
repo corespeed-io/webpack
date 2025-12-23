@@ -44,6 +44,7 @@
     "css-loader": "^7.1.2",
     "dotenv": "^17.2.3",
     "enhanced-resolve": "^5.18.4",
+    "foxts": "^5.0.4",
     "get-port-please": "^3.2.0",
     "html-webpack-plugin": "^5.6.5",
     "is-ci": "^4.1.0",
