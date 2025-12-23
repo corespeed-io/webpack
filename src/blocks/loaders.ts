@@ -20,7 +20,7 @@ const $require = typeof globalThis.require === 'function'
 export const loaders: ConfigurationBlock = (
   {
     cwd,
-    tailwind,
+    postcss,
     svgr,
     reactCompiler,
     webpackExperimentalBuiltinCssSupport,
@@ -31,8 +31,8 @@ export const loaders: ConfigurationBlock = (
     swcJavaScriptOptions,
     supportedBrowsers
   }
-) => (config) => {
-  ensurePackage(['core-js', '@swc/helpers'], cwd, false);
+) => async (config) => {
+  await ensurePackage(['core-js', '@swc/helpers'], cwd, false);
 
   const blocks: ConfigurationFn[] = [];
 
@@ -60,11 +60,13 @@ export const loaders: ConfigurationBlock = (
   });
 
   // CSS
-  if (tailwind) {
-    ensurePackage(['postcss', 'postcss-loader', '@tailwindcss/postcss'], cwd, true);
+  if (postcss) {
+    await ensurePackage(['postcss', 'postcss-loader'], cwd, true);
   }
 
-  if (!webpackExperimentalBuiltinCssSupport || tailwind) {
+  const globalRequire = createRequire(cwd);
+
+  if (!webpackExperimentalBuiltinCssSupport || postcss) {
     loader({
       test: /\.css$/,
       use: [
@@ -74,13 +76,8 @@ export const loaders: ConfigurationBlock = (
         !webpackExperimentalBuiltinCssSupport && {
           loader: $require.resolve('css-loader')
         },
-        tailwind && {
-          loader: $require.resolve('postcss-loader'),
-          options: {
-            postcssOptions: {
-              plugins: [$require('@tailwindcss/postcss')]
-            }
-          }
+        postcss && {
+          loader: globalRequire.resolve('postcss-loader')
         },
         {
           loader: $require.resolve('lightningcss-loader'),
@@ -99,7 +96,7 @@ export const loaders: ConfigurationBlock = (
 
   // SVGR
   if (svgr) {
-    ensurePackage('@svgr/webpack', cwd, true);
+    await ensurePackage('@svgr/webpack', cwd, true);
 
     loader({
       test: /\.svg$/i,
@@ -116,7 +113,7 @@ export const loaders: ConfigurationBlock = (
           options: swcTypeScriptOptions
         },
         {
-          loader: $require.resolve('@svgr/webpack'),
+          loader: globalRequire.resolve('@svgr/webpack'),
           options: {
             babel: false
           }
@@ -144,7 +141,7 @@ export const loaders: ConfigurationBlock = (
 
   // TypeScript/JavaScript
   if (reactCompiler) {
-    ensurePackage('babel-plugin-react-compiler', cwd, true);
+    await ensurePackage('babel-plugin-react-compiler', cwd, true);
   }
   loader({
     test: /\.[cm]?tsx?$/,

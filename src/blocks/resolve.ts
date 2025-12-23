@@ -3,7 +3,7 @@ import type { ConfigurationBlock } from '../types';
 import { ensurePackage } from '../utils/ensure-package';
 import { createRequire } from 'node:module';
 
-export const resolve: ConfigurationBlock = ({ cwd, lodashTreeShaking }) => (config) => {
+export const resolve: ConfigurationBlock = ({ cwd, lodashTreeShaking }) => async (config) => {
   config.resolve ??= {};
 
   const extensions = ['.ts', '.tsx', '.jsx', '.mjs', '.cjs', '.js', '.json'];
@@ -24,7 +24,7 @@ export const resolve: ConfigurationBlock = ({ cwd, lodashTreeShaking }) => (conf
   const globalRequire = createRequire(cwd);
 
   if (lodashTreeShaking) {
-    ensurePackage(['lodash', 'lodash-es'], cwd, true);
+    await ensurePackage(['lodash', 'lodash-es'], cwd, true);
 
     config.resolve.alias ??= {};
     if (!Array.isArray(config.resolve.alias)) {
