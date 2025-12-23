@@ -18,6 +18,9 @@ import { plugins } from './blocks/plugins';
 import { resolve } from './blocks/resolve';
 import { browserslistToTargets } from 'lightningcss';
 import { external } from './blocks/external';
+import { loaders } from './blocks/loaders';
+import { optimization } from './blocks/optimizatoin';
+import { splitChunks } from './blocks/split-chunks';
 
 const $require = typeof globalThis.require === 'function'
   ? globalThis.require
@@ -31,14 +34,14 @@ const $require = typeof globalThis.require === 'function'
  * const { createWebpck } = require('@corespeed/webpack');
  * const path = require('node:path');
  *
- * module.exports = createWebpck({
+ * module.exports = createWebpack({
  *   // your options here
  * }, {
  *  // your custom webpack config here
  * });
  * ```
  */
-export async function createWebpck(
+export async function createWebpack(
   options: CreateWebpackOptions,
   customWebpackOptions: WebpackConfiguration = {}
 ): Promise<WebpackConfiguration> {
@@ -124,7 +127,10 @@ export async function createWebpck(
     output(ctx, blockCtx),
     sourcemap(ctx, blockCtx),
     devserver(ctx, blockCtx),
+    loaders(ctx, blockCtx),
     plugins(ctx, blockCtx),
+    optimization(ctx, blockCtx),
+    splitChunks(ctx, blockCtx),
     resolve(ctx, blockCtx)
   ].reduce<WebpackConfiguration | Promise<WebpackConfiguration>>(
     async (config, next) => next(await config),
