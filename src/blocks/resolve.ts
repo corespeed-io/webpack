@@ -24,7 +24,7 @@ export const resolve: ConfigurationBlock = ({ cwd, lodashTreeShaking }) => async
   const globalRequire = createRequire(cwd);
 
   if (lodashTreeShaking) {
-    await ensurePackage(['lodash', 'lodash-es'], cwd, true);
+    await ensurePackage('lodash-es', cwd, true);
 
     config.resolve.alias ??= {};
     if (!Array.isArray(config.resolve.alias)) {
