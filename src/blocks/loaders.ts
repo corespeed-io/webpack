@@ -76,9 +76,6 @@ export const loaders: ConfigurationBlock = (
         !webpackExperimentalBuiltinCssSupport && {
           loader: $require.resolve('css-loader')
         },
-        postcss && {
-          loader: globalRequire.resolve('postcss-loader')
-        },
         {
           loader: $require.resolve('lightningcss-loader'),
           options: {
@@ -89,7 +86,8 @@ export const loaders: ConfigurationBlock = (
             // https://github.com/fz6m/lightningcss-loader/blob/7f3601abea4479deb31db713610c5a09e8a5d576/src/utils.ts#L39
             targets: browserlists ?? supportedBrowsers
           }
-        }
+        },
+        postcss && globalRequire.resolve('postcss-loader')
       ]
     });
   }

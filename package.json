@@ -69,7 +69,6 @@
     "eslint": "^9.39.2",
     "eslint-config-sukka": "^8.0.6",
     "eslint-formatter-sukka": "^8.0.6",
-    "postcss-loader": "^8.2.0",
     "typescript": "^5.9.3",
     "webpack": "^5.104.1",
     "webpack-dev-server": "^5.2.2"
