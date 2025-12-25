@@ -62,7 +62,6 @@
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@swc/types": "^0.1.25",
-    "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^25.0.3",
     "@types/webpack": "^5.28.5",
     "bunchee": "^6.6.2",
@@ -70,32 +69,15 @@
     "eslint": "^9.39.2",
     "eslint-config-sukka": "^8.0.6",
     "eslint-formatter-sukka": "^8.0.6",
-    "postcss-loader": "^8.2.0",
     "typescript": "^5.9.3",
     "webpack": "^5.104.1",
     "webpack-dev-server": "^5.2.2"
   },
   "peerDependencies": {
-    "@svgr/webpack": "*",
-    "@tailwindcss/postcss": "*",
-    "core-js": "*",
-    "postcss-loader": "*",
     "webpack": "*",
     "webpack-dev-server": "*"
   },
   "peerDependenciesMeta": {
-    "@svgr/webpack": {
-      "optional": true
-    },
-    "@tailwindcss/postcss": {
-      "optional": true
-    },
-    "core-js": {
-      "optional": true
-    },
-    "postcss-loader": {
-      "optional": true
-    },
     "webpack-dev-server": {
       "optional": true
     }

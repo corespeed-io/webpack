@@ -22,10 +22,6 @@ import { loaders } from './blocks/loaders';
 import { optimization } from './blocks/optimizatoin';
 import { splitChunks } from './blocks/split-chunks';
 
-const $require = typeof globalThis.require === 'function'
-  ? globalThis.require
-  : createRequire(import.meta.url);
-
 /**
  * Usage:
  *
@@ -56,13 +52,14 @@ export async function createWebpack(
     devServerPort: {},
     externals: {},
     webpackExperimentalBuiltinCssSupport: false,
-    tailwind: false,
+    postcss: false,
     svgr: false,
     topLevelFrameworkPackages: ['react', 'react-dom', 'wouter', 'react-router', 'react-router-dom'],
     reactCompiler: false,
     analyze: process.env.ANALYZE === 'true',
     plugins: [],
     dotenv: {},
+    lodashTreeShaking: false,
     ...options
   };
 
@@ -108,7 +105,8 @@ export async function createWebpack(
   const supportedBrowsers = getSupportedBrowsers(ctx.browserlists, ctx.cwd, ctx.development);
   const lightningcssTargets = supportedBrowsers ? browserslistToTargets(supportedBrowsers) : undefined;
 
-  const coreJsVersion = $require('core-js/package.json').version;
+  const globalRequire = createRequire(ctx.cwd);
+  const coreJsVersion = globalRequire('core-js/package.json').version;
 
   const blockCtx: ConfigurationBlockContext = {
     swcJavaScriptOptions: getSwcOptions(ctx.development, false, supportedBrowsers, coreJsVersion),

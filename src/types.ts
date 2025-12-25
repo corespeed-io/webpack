@@ -167,13 +167,13 @@ export interface CreateWebpackOptions {
    */
   webpackExperimentalBuiltinCssSupport?: boolean,
   /**
-   * Enable TailwindCSS support via `postcss-loader` and `@tailwindcss/postcss` plugin.
+   * Enable `postcss-loader`. This allows you to run PostCSS plugins like Tailwind CSS.
    *
-   * You need to manually install `postcss-loader` and `@tailwindcss/postcss` in your project for this to work.
+   * You need to manually install `postcss-loader` in your project for this to work.
    *
    * @default false
    */
-  tailwind?: boolean,
+  postcss?: boolean,
   /**
    * Enable `@svgr/webpack` loader for SVG files.
    *
@@ -206,7 +206,14 @@ export interface CreateWebpackOptions {
    *
    * But if you wish, you can also directly specify the browserlists here.
    */
-  browserlists?: string | string[]
+  browserlists?: string | string[],
+
+  /**
+   * Enable alias lodash to lodash-es for better tree-shaking.
+   *
+   * @default false
+   */
+  lodashTreeShaking?: boolean
 }
 
 type OptionalOrMustSpecified = 'entry' | 'htmlTemplatePath' | 'browserlists';
