@@ -100,8 +100,8 @@ importers:
         specifier: ^10.3.2
         version: 10.3.2
       bunchee:
-        specifier: ^6.6.2
-        version: 6.6.2(typescript@5.9.3)
+        specifier: ^6.7.0
+        version: 6.7.0(typescript@5.9.3)
       core-js:
         specifier: ^3.47.0
         version: 3.47.0
@@ -1003,8 +1003,8 @@ packages:
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
 
-  '@rollup/plugin-commonjs@28.0.9':
-    resolution: {integrity: sha512-PIR4/OHZ79romx0BVVll/PkwWpJ7e5lsqFa3gFfcrFPWwLXLV39JVUzQV9RKjWerE7B845Hqjj9VYlQeieZ2dA==}
+  '@rollup/plugin-commonjs@29.0.0':
+    resolution: {integrity: sha512-U2YHaxR2cU/yAiwKJtJRhnyLk7cifnQw0zUpISsocBDoHDJn+HTV74ABqnwr5bEgWUwFZC9oFL6wLe21lHu5eQ==}
     engines: {node: '>=16.0.0 || 14 >= 14.17'}
     peerDependencies:
       rollup: ^2.68.0||^3.0.0||^4.0.0
@@ -1860,13 +1860,16 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  bunchee@6.6.2:
-    resolution: {integrity: sha512-hf9B4X/2jgFl0hYhE1NT/mnhnxEBxDNfiZnhtAVMWSUPIAtPLqcoLXUZYsmRhureNGcsowQI8a22e8kQ9Un/AA==}
+  bunchee@6.7.0:
+    resolution: {integrity: sha512-tCTSm4okjArE/0FiuLUi5ITqNLlH6Ak2i+2sRxkBGt2PcuXYCvKwKV1zI3oQuvSNnItn3860O0S/sLnP7eIwpg==}
     engines: {node: '>= 18.0.0'}
     hasBin: true
     peerDependencies:
+      '@typescript/native-preview': '*'
       typescript: ^4.1 || ^5.0
     peerDependenciesMeta:
+      '@typescript/native-preview':
+        optional: true
       typescript:
         optional: true
 
@@ -5046,7 +5049,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@rollup/plugin-commonjs@28.0.9(rollup@4.54.0)':
+  '@rollup/plugin-commonjs@29.0.0(rollup@4.54.0)':
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.54.0)
       commondir: 1.0.1
@@ -5932,9 +5935,9 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  bunchee@6.6.2(typescript@5.9.3):
+  bunchee@6.7.0(typescript@5.9.3):
     dependencies:
-      '@rollup/plugin-commonjs': 28.0.9(rollup@4.54.0)
+      '@rollup/plugin-commonjs': 29.0.0(rollup@4.54.0)
       '@rollup/plugin-json': 6.1.0(rollup@4.54.0)
       '@rollup/plugin-node-resolve': 16.0.3(rollup@4.54.0)
       '@rollup/plugin-replace': 6.0.3(rollup@4.54.0)
