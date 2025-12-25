@@ -23,14 +23,15 @@
   },
   "scripts": {
     "lint": "eslint --format=sukka .",
-    "build": "bunchee"
+    "build": "bunchee",
+    "prerelease": "pnpm run lint && pnpm run build",
+    "release": "bumpp -r --all --commit \"release: %s\" --tag \"%s\""
   },
   "keywords": [
     "webpack",
     "configuration",
     "corespeed"
   ],
-  "author": "Sukka <https://skk.moe>",
   "license": "UNLICENSED",
   "dependencies": {
     "@antfu/install-pkg": "^1.1.0",
@@ -64,7 +65,8 @@
     "@swc/types": "^0.1.25",
     "@types/node": "^25.0.3",
     "@types/webpack": "^5.28.5",
-    "bunchee": "^6.6.2",
+    "bumpp": "^10.3.2",
+    "bunchee": "^6.7.0",
     "core-js": "^3.47.0",
     "eslint": "^9.39.2",
     "eslint-config-sukka": "^8.0.6",
@@ -82,5 +84,5 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@10.26.1"
+  "packageManager": "pnpm@10.26.2"
 }
