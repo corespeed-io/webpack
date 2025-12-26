@@ -13,6 +13,7 @@ export const output: ConfigurationBlock = (
 ) => (config: WebpackConfiguration) => {
   const {
     path: outputPath,
+    base = '/',
     library,
     crossOriginLoading
   } = output;
@@ -23,6 +24,7 @@ export const output: ConfigurationBlock = (
   config.output.hashFunction = 'xxhash64';
   config.output.hashDigestLength = 16;
 
+  config.output.publicPath ??= base;
   config.output.path ??= outputPath;
   config.output.library ??= library;
   config.output.filename ??= jsFilename;

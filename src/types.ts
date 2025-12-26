@@ -58,11 +58,17 @@ export interface CreateWebpackOptions {
   htmlTemplatePath?: string,
   output?: {
     /**
-     * `output.path`
+     * `output.path`, where the built files will be emitted to.
      *
      * @default undefined
      */
     path?: WebpackConfigurationOutput['path'],
+    /**
+     * `output.publicPath`, this is where you expect your assets to be served from.
+     *
+     * @default '/'
+     */
+    base?: WebpackConfigurationOutput['publicPath'],
     /**
      * `output.library`
      *
@@ -229,7 +235,7 @@ export interface ConfigurationBlockContext {
   assetFilename: string
 };
 
-export interface CreateWebpackContext extends Required<Omit<CreateWebpackOptions, OptionalOrMustSpecified>>, Pick<CreateWebpackOptions, OptionalOrMustSpecified> {}
+export interface CreateWebpackContext extends Required<Omit<CreateWebpackOptions, OptionalOrMustSpecified>>, Pick<CreateWebpackOptions, OptionalOrMustSpecified> { }
 
 export type ConfigurationFn = (config: WebpackConfiguration) => WebpackConfiguration | Promise<WebpackConfiguration>;
 export type ConfigurationBlock = (ctx: CreateWebpackContext, blockCtx: ConfigurationBlockContext) => ConfigurationFn;
