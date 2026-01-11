@@ -52,10 +52,12 @@ export interface CreateWebpackOptions {
    * Path to HTML template file.
    *
    * This will be used by `html-webpack-plugin` to generate the final `index.html`.
+   * Default to `./src/index.html`, but you can set it to `null`, `undefined` or `false` to disable `html-webpack-plugin`.
    *
-   * If not specificied, the `html-webpack-plugin` will not be enabled
+   * @default './src/index.html'
+
    */
-  htmlTemplatePath?: string,
+  htmlTemplatePath?: string | null | undefined | false,
   output?: {
     /**
      * `output.path`, where the built files will be emitted to.

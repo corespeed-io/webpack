@@ -129,10 +129,7 @@ export const loaders: ConfigurationBlock = (
       },
       {
         test: /assets\//,
-        type: 'asset/resource',
-        generator: {
-          filename: '_assets/[hash][ext][query]'
-        }
+        type: 'asset/resource'
       }
     ]
   });
