@@ -55,8 +55,7 @@ export interface CreateWebpackOptions {
    * Default to `./src/index.html`, but you can set it to `null`, `undefined` or `false` to disable `html-webpack-plugin`.
    *
    * @default './src/index.html'
-   *
-   * If not specificied, the `html-webpack-plugin` will not be enabled
+
    */
   htmlTemplatePath?: string | null | undefined | false,
   output?: {
