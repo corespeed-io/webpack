@@ -210,6 +210,16 @@ export interface CreateWebpackOptions {
   dotenv?: boolean | DotenvConfigOptions,
 
   /**
+   * Remove all `console.*` calls in production build.
+   * Uses `swc` compiler's built-in capability to do so.
+   *
+   * If you need console statements in production, set this option to `false`.
+   *
+   * @default true
+   */
+  dropConsoleInProduction?: boolean,
+
+  /**
    * By default we will use "browserlists" package to looking for config, like `.browserslistrc` file or `browserslist` field in `package.json`, etc.
    *
    * But if you wish, you can also directly specify the browserlists here.

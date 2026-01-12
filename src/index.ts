@@ -60,6 +60,7 @@ export async function createWebpack(
     plugins: [],
     dotenv: {},
     lodashTreeShaking: false,
+    dropConsoleInProduction: true,
     ...options
   };
 

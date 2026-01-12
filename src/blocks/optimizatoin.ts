@@ -1,4 +1,4 @@
-import TerserPlugin from 'terser-webpack-plugin';
+import TerserWebpackPlugin from 'terser-webpack-plugin';
 
 import type { ConfigurationBlock } from '../types';
 import { LightningCssMinifyPlugin } from 'lightningcss-loader';
@@ -8,7 +8,8 @@ import LightningCSS from 'lightningcss';
 export const optimization: ConfigurationBlock = (
   {
     development: isDevelopment,
-    browserlists
+    browserlists,
+    dropConsoleInProduction
   },
   {
     supportedBrowsers
@@ -22,14 +23,15 @@ export const optimization: ConfigurationBlock = (
 
   config.optimization.minimizer ??= [];
   config.optimization.minimizer.push(
-    new TerserPlugin({
-      minify: TerserPlugin.swcMinify,
+    new TerserWebpackPlugin({
+      minify: TerserWebpackPlugin.swcMinify,
       terserOptions: {
         compress: {
           ecma: 2018,
           comparisons: false,
-          inline: 2 // https://github.com/vercel/next.js/issues/7178#issuecomment-493048965
+          inline: 2, // https://github.com/vercel/next.js/issues/7178#issuecomment-493048965
           // inline: 1,
+          drop_console: isDevelopment ? false : dropConsoleInProduction
         },
         mangle: { safari10: true },
         format: {
