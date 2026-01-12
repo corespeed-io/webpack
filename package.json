@@ -38,7 +38,7 @@
     "@clack/prompts": "^0.11.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
     "@sentry/webpack-plugin": "^4.6.1",
-    "@swc/core": "^1.15.7",
+    "@swc/core": "^1.15.8",
     "@types/webpack-bundle-analyzer": "^4.7.0",
     "browserslist": "^4.28.1",
     "clean-webpack-plugin": "^4.0.0",
@@ -57,20 +57,20 @@
     "swc-loader": "^0.2.6",
     "terser-webpack-plugin": "^5.3.16",
     "tsconfig-paths-webpack-plugin": "^4.2.0",
-    "webpack-bundle-analyzer": "^5.1.0",
+    "webpack-bundle-analyzer": "^5.1.1",
     "webpackbar": "^7.0.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@swc/types": "^0.1.25",
-    "@types/node": "^25.0.3",
+    "@types/node": "^25.0.6",
     "@types/webpack": "^5.28.5",
     "bumpp": "^10.3.2",
-    "bunchee": "^6.7.0",
+    "bunchee": "^6.9.3",
     "core-js": "^3.47.0",
     "eslint": "^9.39.2",
-    "eslint-config-sukka": "^8.0.6",
-    "eslint-formatter-sukka": "^8.0.6",
+    "eslint-config-sukka": "^8.1.0",
+    "eslint-formatter-sukka": "^8.1.0",
     "typescript": "^5.9.3",
     "webpack": "^5.104.1",
     "webpack-dev-server": "^5.2.2"
@@ -84,5 +84,5 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@10.26.2"
+  "packageManager": "pnpm@10.28.0"
 }
