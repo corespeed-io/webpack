@@ -19,7 +19,7 @@ import { resolve } from './blocks/resolve';
 import { browserslistToTargets } from 'lightningcss';
 import { external } from './blocks/external';
 import { loaders } from './blocks/loaders';
-import { optimization } from './blocks/optimizatoin';
+import { optimization } from './blocks/optimization';
 import { splitChunks } from './blocks/split-chunks';
 
 /**
